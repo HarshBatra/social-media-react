@@ -31,7 +31,7 @@ const main = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center align-middle my-4 mx-10">
       {postsList?.map((post) => (
         <Post post={post} />
       ))}

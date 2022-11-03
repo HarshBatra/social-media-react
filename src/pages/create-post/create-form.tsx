@@ -47,13 +47,33 @@ const CreateForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onCreatePost)}>
-      <input placeholder="Title..." {...register("title")} />
-      <p style={{ color: "red" }}>{errors.title?.message}</p>
-      <textarea placeholder="Description..." {...register("description")} />
-      <p style={{ color: "red" }}>{errors.description?.message}</p>
-      <input type="submit" />
-    </form>
+    <div className="flex justify-center items-center mt-20 flex-col m-10 md:mx-60 border border-slate-600 rounded-lg p-5">
+      <form onSubmit={handleSubmit(onCreatePost)}>
+        <h1 className="font-extrabold mb-4 text-2xl flex items-center justify-center text-center text-slate-600">
+          Create Post!
+        </h1>
+        <input
+          className="flex mb-4  border border-slate-600 rounded-lg p-2 w-full"
+          placeholder="Title..."
+          {...register("title")}
+        />
+        <p className="" style={{ color: "red" }}>
+          {errors.title?.message}
+        </p>
+        <textarea
+          className="flex mb-4  border border-slate-600 rounded-lg p-2 w-full"
+          placeholder="Description..."
+          {...register("description")}
+        />
+        <p className="" style={{ color: "red" }}>
+          {errors.description?.message}
+        </p>
+        <input
+          className="flex mb-4 w-full tracking-wider font-bold bg-slate-600 text-slate-200 rounded-lg p-2 items-center justify-center text-center"
+          type="submit"
+        />
+      </form>
+    </div>
   );
 };
 

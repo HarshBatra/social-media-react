@@ -86,20 +86,27 @@ export const Post = (props: Props) => {
   }, []); //adding empty array to useEffect to ensure that to only do this when the component is mounting and not when its updating
 
   return (
-    <div>
-      <div className="title">
+    <div className="flex flex-col shadow-xl m-4 p-8 border border-slate-600 border-opacity-20 rounded-3xl justify-center items-center w-3/4 h-1/3 md:w-1/5">
+      <div className="font-bold m-2 text-xl md:text-3xl text-slate-600">
         <h1> {post.title}</h1>
       </div>
-      <div className="body">
+      <div className="font-light text-slate-600 text-base md:text-lg m-2 mb-8">
         <p> {post.description} </p>
       </div>
 
-      <div className="footer">
-        <p> @{post.username} </p>
-        <button onClick={hasUserLiked ? removeLike : addLike}>
-          {hasUserLiked ? <>❤️</> : <>🤍</>}{" "}
-        </button>
-        {likes && <p> Likes: {likes?.length} </p>}
+      <div className="flex text-sm justify-between align-middle items-center m-2 font-light text-slate-600">
+        <div className="flex mr-4 md:mr-8">
+          <p> @{post.username} </p>
+        </div>
+        <div className="flex cursor-pointer ml-4 md:ml-8">
+          <button
+            className="mr-1"
+            onClick={hasUserLiked ? removeLike : addLike}
+          >
+            {hasUserLiked ? <>❤️</> : <>🤍</>}{" "}
+          </button>
+          {likes && <p>{likes?.length} </p>}
+        </div>
       </div>
     </div>
   );

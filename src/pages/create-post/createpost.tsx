@@ -3,7 +3,7 @@ import CreateForm from "./create-form";
 
 const createpost = () => {
   return (
-    <div>
+    <div className="pt-40">
       <CreateForm />
     </div>
   );

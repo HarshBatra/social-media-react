@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-redeclare */
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { Post } from "./post";
@@ -17,7 +16,7 @@ export interface Post {
 
 const main = () => {
   const [postsList, setPostsList] = useState<Post[] | null>(null); //array of Post
-  const postsRef = collection(db, "posts"); //reference to the collection we made in firebase sirestore database
+  const postsRef = collection(db, "posts"); //reference to the collection we made in firebase firestore database
 
   const getPosts = async () => {
     const data = await getDocs(postsRef);
@@ -31,7 +30,7 @@ const main = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center align-middle my-4 mx-10">
+    <div className="grid md:grid-cols-3 grid-cols-1 w-full justify-center items-center align-middle py-40 px-10">
       {postsList?.map((post) => (
         <Post post={post} />
       ))}

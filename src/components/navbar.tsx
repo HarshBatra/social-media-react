@@ -13,11 +13,14 @@ const navbar = () => {
   };
 
   return (
-    <div className="m-0 p-0 left-0 top-0 w-full h-20 flex justify-between items-center text-sm md:text-lg bg-slate-600 drop-shadow-xl sticky">
+    <div className="w-full z-50 h-fit flex md:flex-row flex-col justify-center py-4 md:justify-between items-center text-sm md:text-lg bg-slate-600 drop-shadow-xl fixed">
       <div className="flex flex-row items-center text-center no-underline text-slate-200 pb-1 m-2 justify-between md:ml-10">
         <Link to="/">
-          <div className="flex mx-3 md:mx-10 cursor-pointer">Home</div>
+          <div className="flex mx-3 md:mx-10 cursor-pointer font-bold text-2xl text-white">
+            ShareSpace
+          </div>
         </Link>
+
         {!user ? (
           <Link to="/login">
             <div className="flex border border-slate-200 rounded-lg py-1 px-2 mx-3 md:mx-10 cursor-pointer">
@@ -25,11 +28,16 @@ const navbar = () => {
             </div>
           </Link>
         ) : (
-          <Link to="/createpost">
-            <div className="flex mx-3 md:mx-10 bg-slate-200 py-2 px-3 drop-shadow-sm text-slate-600 rounded-md  whitespace-nowrap cursor-pointer">
-              Create Post
-            </div>
-          </Link>
+          <>
+            <Link to="/posts">
+              <div className="flex mx-3 md:mx-10 cursor-pointer">Posts</div>
+            </Link>
+            <Link to="/createpost">
+              <div className="flex mx-3 md:mx-10 bg-slate-200 py-2 px-3 drop-shadow-sm text-slate-600 rounded-md  whitespace-nowrap cursor-pointer">
+                Create Post
+              </div>
+            </Link>
+          </>
         )}
       </div>
       <div className="flex items-center align-middle justify-end text-slate-200 mr-5">

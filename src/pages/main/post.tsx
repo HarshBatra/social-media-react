@@ -86,7 +86,7 @@ export const Post = (props: Props) => {
   }, []); //adding empty array to useEffect to ensure that to only do this when the component is mounting and not when its updating
 
   return (
-    <div className="flex flex-col shadow-xl m-4 p-8 border border-slate-600 border-opacity-20 rounded-3xl justify-center items-center w-3/4 h-1/3 md:w-1/5">
+    <div className="flex flex-col shadow-xl m-4 p-8 border border-slate-600 border-opacity-20 rounded-3xl justify-center items-center">
       <div className="font-bold m-2 text-xl md:text-3xl text-slate-600">
         <h1> {post.title}</h1>
       </div>
